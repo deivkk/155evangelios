@@ -1,6 +1,5 @@
-//Evangelio 1
-var grammar = tracery.createGrammar({
-    "name" : ["Cheri", "Fox", "Morgana", "Jedoo", "Brick", "Shadow", "Krox", "Urga", "Zelph"],
+let grammarObject = {
+    "name": ['David'],
     "story" : ["#hero.capitalize# was a great #occupation#, and this song tells of #heroTheir# adventure. #hero.capitalize# #didStuff#, then #heroThey# #didStuff#, then #heroThey# went home to read a book."],
     "monster" : ["dragon", "ogre", "witch", "wizard", "goblin", "golem", "giant", "sphinx", "warlord"],
     "setPronouns" : [
@@ -12,11 +11,13 @@ var grammar = tracery.createGrammar({
         "[occupation:baker][didStuff:baked bread,decorated cupcakes,folded dough,made croissants,iced a cake]", 
         "[occupation:warrior][didStuff:fought #monster.a#,saved a village from #monster.a#,battled #monster.a#,defeated #monster.a#]"],
     "origin" : ["#[#setPronouns#][#setOccupation#][hero:#name#]story#"]
+}
 
-});
+grammarObject.name = names;
+let grammar = tracery.createGrammar(grammarObject);
 
 grammar.addModifiers(baseEngModifiers);
 
-var evangelio1 = document.getElementById("evangelio1");
+let evangelio1 = document.getElementById("evangelio1");
 evangelio1.textContent = grammar.flatten("#origin#");
 
